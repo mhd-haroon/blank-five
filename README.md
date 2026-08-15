@@ -15,7 +15,7 @@
 - 🗄️ **Persistent Database System**: Inquiries, project quotes, and newsletter signups stored in a client-side persistent database (`src/services/db.js`).
 - 📊 **Admin Control Portal**: Built-in Admin Console (`src/components/AdminPortal.jsx`) for managing lead tickets, updating project statuses, and exporting database CSV backups.
 - 💰 **Multi-Currency Project Estimator**: Interactive scope calculator supporting USD ($), INR (₹), EUR (€), and GBP (£).
-- 💬 **Instant Dispatch System**: Dual direct inquiry dispatch via formatted WhatsApp text (`+91 6282878105`) or Email (`contact@blankfive.com`).
+- 💬 **Instant Dispatch System**: Dual direct inquiry dispatch via formatted WhatsApp text (`+91 8078434415`) or Email (`haroonalayil6@gmail.com`).
 - ⚡ **Performance & Speed**: Built with React 18 & Vite for near-instant page transitions (< 0.8s load time).
 - 📱 **100% Mobile Responsive**: Fluid layouts, mobile navigation drawer, and floating live desk widget.
 
@@ -64,7 +64,7 @@ Pre-configured with `vercel.json`, `netlify.toml`, and `public/CNAME` for 1-clic
 ## 📬 Contact & Support
 
 - **Website**: [www.blankfive.com](https://www.blankfive.com)
-- **WhatsApp**: [+91 6282878105](https://wa.me/916282878105)
-- **Email**: [contact@blankfive.com](mailto:contact@blankfive.com)
+- **WhatsApp**: [+91 8078434415](https://wa.me/918078434415)
+- **Email**: [haroonalayil6@gmail.com](mailto:haroonalayil6@gmail.com)
 
 © 2026 BLANK FIVE. All rights reserved.

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { dbService } from '../services/db';
-import { Database, Download, Trash2, CheckCircle, RefreshCw, X, Shield, Mail, Users, FileText } from 'lucide-react';
+import { Database, Download, Trash2, CheckCircle, RefreshCw, X, Shield, Mail, Users, FileText, Eye } from 'lucide-react';
+import ProjectDocument from './ProjectDocument';
 
 export default function AdminPortal({ isOpen, onClose, showToast }) {
   const [activeTab, setActiveTab] = useState('inquiries');
   const [inquiries, setInquiries] = useState([]);
   const [subscribers, setSubscribers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   const loadData = async () => {
     setLoading(true);
@@ -199,13 +201,32 @@ export default function AdminPortal({ isOpen, onClose, showToast }) {
                       {new Date(q.timestamp).toLocaleDateString()}
                     </td>
                     <td style={{ padding: '12px 16px' }}>
-                      <button 
-                        onClick={() => handleDelete(q.id)} 
-                        style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer' }}
-                        title="Delete record"
-                      >
-                        <Trash2 size={16} />
-                      </button>
+                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <button 
+                          onClick={() => setSelectedDoc({
+                            ticketId: q.id,
+                            name: q.name,
+                            email: q.email,
+                            phone: q.phone,
+                            service: q.service,
+                            budget: q.budget,
+                            message: q.message,
+                            createdAt: new Date(q.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                          })}
+                          style={{ background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.3)', color: 'var(--brand-cyan)', borderRadius: '6px', padding: '4px 8px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem' }}
+                          title="View Official Project Document"
+                        >
+                          <Eye size={13} />
+                          <span>Doc</span>
+                        </button>
+                        <button 
+                          onClick={() => handleDelete(q.id)} 
+                          style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer' }}
+                          title="Delete record"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -238,6 +259,16 @@ export default function AdminPortal({ isOpen, onClose, showToast }) {
               </tbody>
             </table>
           </div>
+        )}
+
+        {/* Selected Document Modal */}
+        {selectedDoc && (
+          <ProjectDocument
+            isModal={true}
+            onClose={() => setSelectedDoc(null)}
+            showToast={showToast}
+            documentData={selectedDoc}
+          />
         )}
       </div>
     </div>

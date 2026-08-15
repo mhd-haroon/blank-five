@@ -329,3 +329,38 @@ button {
     justify-content: center;
   }
 }
+
+/* Print Stylesheet for Formal Project Documents */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header, footer, nav, .no-print, .glow-orb, .floating-chat-container, .modal-overlay button {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+
+  .modal-content {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .printable-document-sheet {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
+

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Calculator, Check, ArrowRight, Sparkles, Send, ShieldCheck, RefreshCw } from 'lucide-react';
+import { Calculator, Check, ArrowRight, Sparkles, Send, ShieldCheck, RefreshCw, FileText } from 'lucide-react';
+import ProjectDocument from './ProjectDocument';
 
 export default function ProjectCalculator({ isOpen, onClose, showToast }) {
   const [currency, setCurrency] = useState('USD');
   const [serviceType, setServiceType] = useState('website');
   const [selectedFeatures, setSelectedFeatures] = useState(['seo', 'responsive']);
   const [timeline, setTimeline] = useState('standard');
+  const [showDocModal, setShowDocModal] = useState(false);
 
   const currencies = {
     USD: { symbol: '$', rate: 1, label: 'USD ($)' },
@@ -284,18 +286,51 @@ export default function ProjectCalculator({ isOpen, onClose, showToast }) {
               </div>
             </div>
 
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <button
-                onClick={handleApplyScope}
+                onClick={() => setShowDocModal(true)}
                 className="btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                <span>Apply Scope to Contact Form</span>
-                <ArrowRight size={18} />
+                <FileText size={18} />
+                <span>View Scope as Document</span>
+              </button>
+
+              <button
+                onClick={handleApplyScope}
+                className="btn-secondary"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                <span>Apply to Contact Form</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>
         </div>
+
+        {/* Scope Document Modal */}
+        {showDocModal && (
+          <ProjectDocument
+            isModal={true}
+            onClose={() => setShowDocModal(false)}
+            showToast={showToast}
+            documentData={{
+              ticketId: `BF-SCOPE-${Math.floor(1000 + Math.random() * 9000)}`,
+              name: 'Prospective Client',
+              email: 'Inquiry via blankfive.com Estimator',
+              phone: 'Not provided',
+              service: selectedServiceObj.name,
+              budget: `${currentCurrency.symbol}${estimatedMin.toLocaleString()} - ${currentCurrency.symbol}${estimatedMax.toLocaleString()} (${currency})`,
+              timeline: selectedTimelineObj.name,
+              features: selectedFeatures.map(fId => {
+                const f = featureOptions.find(opt => opt.id === fId);
+                return f ? f.name : fId;
+              }),
+              message: `Configured interactive scope for ${selectedServiceObj.name} with ${selectedFeatures.length} feature module(s) on ${selectedTimelineObj.name} delivery pace.`,
+              createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            }}
+          />
+        )}
       </div>
       <style>{`
         @media (min-width: 992px) {

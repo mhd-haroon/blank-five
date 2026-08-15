@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MessageSquare, Clock, Send, CheckCircle2, Sparkles, Copy, ExternalLink, Database } from 'lucide-react';
+import { Mail, Phone, MessageSquare, Clock, Send, CheckCircle2, Sparkles, Copy, ExternalLink, Database, FileText } from 'lucide-react';
 import { dbService } from '../services/db';
+import ProjectDocument from './ProjectDocument';
 
 export default function Contact({ showToast, onOpenAdmin }) {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ export default function Contact({ showToast, onOpenAdmin }) {
 
   const handleWhatsAppDispatch = () => {
     const text = encodeURIComponent(getFormattedMessage());
-    window.open(`https://wa.me/916282878105?text=${text}`, '_blank');
+    window.open(`https://wa.me/918078434415?text=${text}`, '_blank');
     if (showToast) {
       showToast({ title: 'Opening WhatsApp...', message: 'Connecting with lead developer.', type: 'info' });
     }
@@ -73,9 +74,9 @@ export default function Contact({ showToast, onOpenAdmin }) {
   const handleEmailDispatch = () => {
     const subject = encodeURIComponent(`Project Inquiry: ${formData.service} - [Ticket #${ticketId}]`);
     const body = encodeURIComponent(getFormattedMessage());
-    window.location.href = `mailto:contact@blankfive.com?cc=blankfive.tech@gmail.com&subject=${subject}&body=${body}`;
+    window.location.href = `mailto:haroonalayil6@gmail.com?subject=${subject}&body=${body}`;
     if (showToast) {
-      showToast({ title: 'Opening Email...', message: 'Sending to contact@blankfive.com', type: 'info' });
+      showToast({ title: 'Opening Email...', message: 'Sending to haroonalayil6@gmail.com', type: 'info' });
     }
   };
 
@@ -131,14 +132,14 @@ export default function Contact({ showToast, onOpenAdmin }) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 600 }}>WhatsApp Direct</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#ffffff' }}>+91 6282878105</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#ffffff' }}>+91 8078434415</div>
                     <div style={{ fontSize: '0.78rem', color: 'var(--brand-cyan)' }}>Active for instant messaging</div>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button 
-                    onClick={() => copyToClipboard('+916282878105', 'WhatsApp')} 
+                    onClick={() => copyToClipboard('+918078434415', 'WhatsApp')} 
                     className="btn-secondary" 
                     style={{ padding: '8px 12px', fontSize: '0.8rem' }}
                     title="Copy Phone Number"
@@ -146,7 +147,7 @@ export default function Contact({ showToast, onOpenAdmin }) {
                     <Copy size={14} />
                   </button>
                   <a 
-                    href="https://wa.me/916282878105?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20a%20new%20project!" 
+                    href="https://wa.me/918078434415?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20a%20new%20project!" 
                     target="_blank" 
                     rel="noreferrer"
                     className="btn-primary"
@@ -174,14 +175,14 @@ export default function Contact({ showToast, onOpenAdmin }) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 600 }}>Official Email</div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>contact@blankfive.com</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Backup: blankfive.tech@gmail.com</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>haroonalayil6@gmail.com</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Direct Software Consultation</div>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button 
-                    onClick={() => copyToClipboard('contact@blankfive.com', 'Official Email')} 
+                    onClick={() => copyToClipboard('haroonalayil6@gmail.com', 'Official Email')} 
                     className="btn-secondary" 
                     style={{ padding: '8px 12px', fontSize: '0.8rem' }}
                     title="Copy Email"
@@ -189,7 +190,7 @@ export default function Contact({ showToast, onOpenAdmin }) {
                     <Copy size={14} />
                   </button>
                   <a 
-                    href="mailto:contact@blankfive.com" 
+                    href="mailto:haroonalayil6@gmail.com" 
                     className="btn-secondary"
                     style={{ padding: '8px 14px', fontSize: '0.825rem' }}
                   >
@@ -215,13 +216,13 @@ export default function Contact({ showToast, onOpenAdmin }) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 600 }}>Phone Consultation</div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>+91 6282878105</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>+91 8078434415</div>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Mon - Sat (9am - 8pm IST)</div>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => copyToClipboard('+916282878105', 'Phone Number')} 
+                  onClick={() => copyToClipboard('+918078434415', 'Phone Number')} 
                   className="btn-secondary" 
                   style={{ padding: '8px 12px', fontSize: '0.8rem' }}
                 >
@@ -259,71 +260,45 @@ export default function Contact({ showToast, onOpenAdmin }) {
             }}
           >
             {submitted ? (
-              <div style={{ padding: '20px 0', textAlign: 'center' }}>
-                <div 
-                  style={{
-                    width: '68px',
-                    height: '68px',
-                    borderRadius: '50%',
-                    background: 'rgba(16, 185, 129, 0.15)',
-                    color: '#10b981',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '16px'
+              <div style={{ width: '100%' }}>
+                <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                  <div 
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '50%',
+                      background: 'rgba(16, 185, 129, 0.15)',
+                      color: '#10b981',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '12px'
+                    }}
+                  >
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <h3 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '6px' }}>
+                    Project Specification Document Generated
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '560px', margin: '0 auto' }}>
+                    Your project details have been authenticated, logged to our database, and compiled into the official specification document below.
+                  </p>
+                </div>
+
+                <ProjectDocument 
+                  documentData={{
+                    ticketId,
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    service: formData.service,
+                    budget: formData.budget,
+                    message: formData.message,
+                    createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
                   }}
-                >
-                  <CheckCircle2 size={38} />
-                </div>
-
-                <div className="badge badge-purple" style={{ marginBottom: '12px' }}>
-                  Database Record Ticket #{ticketId}
-                </div>
-
-                <h3 style={{ fontSize: '1.8rem', color: '#ffffff', marginBottom: '10px' }}>
-                  Inquiry Saved to Database!
-                </h3>
-
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '28px', lineHeight: 1.6 }}>
-                  Thank you <strong style={{ color: '#ffffff' }}>{formData.name}</strong>. Your project scope for <strong style={{ color: 'var(--brand-cyan)' }}>{formData.service}</strong> ({formData.budget}) is stored in our database and ready for instant dispatch!
-                </p>
-
-                {/* Instant Dispatch Actions */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
-                  <button 
-                    onClick={handleWhatsAppDispatch} 
-                    className="btn-primary"
-                    style={{ width: '100%', justifyContent: 'center' }}
-                  >
-                    <MessageSquare size={18} />
-                    <span>Dispatch Scope via WhatsApp Now</span>
-                  </button>
-
-                  <button 
-                    onClick={handleEmailDispatch} 
-                    className="btn-secondary"
-                    style={{ width: '100%', justifyContent: 'center' }}
-                  >
-                    <Mail size={18} color="#7F00FF" />
-                    <span>Send to contact@blankfive.com</span>
-                  </button>
-
-                  <button 
-                    onClick={() => copyToClipboard(getFormattedMessage(), 'Project Inquiry Scope')}
-                    className="btn-secondary"
-                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem' }}
-                  >
-                    <Copy size={16} />
-                    <span>Copy Formatted Ticket Details</span>
-                  </button>
-                </div>
-
-                <button 
-                  onClick={() => setSubmitted(false)} 
-                  style={{ color: 'var(--text-dim)', fontSize: '0.85rem', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
-                >
-                  Submit Another Project Inquiry
-                </button>
+                  onReset={() => setSubmitted(false)}
+                  showToast={showToast}
+                />
               </div>
             ) : (
               <form onSubmit={handleSubmit}>

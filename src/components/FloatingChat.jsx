@@ -45,25 +45,25 @@ export default function FloatingChat({ onOpenCalculator, showToast }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {/* WhatsApp Direct */}
             <a 
-              href="https://wa.me/916282878105?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20a%20new%20project!"
+              href="https://wa.me/918078434415?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20a%20new%20project!"
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
               style={{ padding: '10px 16px', fontSize: '0.88rem', justifyContent: 'center' }}
             >
               <MessageSquare size={16} />
-              <span>Chat on WhatsApp (+91 6282878105)</span>
+              <span>Chat on WhatsApp (+91 8078434415)</span>
             </a>
 
             {/* Quick Phone Copy */}
             <button 
-              onClick={() => copyContact('+916282878105', 'Phone Number')}
+              onClick={() => copyContact('+918078434415', 'Phone Number')}
               className="btn-secondary"
               style={{ padding: '10px 16px', fontSize: '0.85rem', justifyContent: 'space-between' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Phone size={14} color="#FF007F" />
-                <span>Call: +91 6282878105</span>
+                <span>Call: +91 8078434415</span>
               </div>
               <span style={{ fontSize: '0.75rem', color: 'var(--brand-cyan)' }}>Copy</span>
             </button>

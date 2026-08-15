@@ -68,7 +68,7 @@ export default function Hero({ onOpenCalculator }) {
               </a>
 
               <a 
-                href="https://wa.me/916282878105?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20building%20a%20project!" 
+                href="https://wa.me/918078434415?text=Hello%20BLANK%20FIVE,%20I'd%20like%20to%20discuss%20building%20a%20project!" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn-secondary"

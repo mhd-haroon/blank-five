@@ -199,7 +199,7 @@ export default function FAQs() {
           <h3 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '8px' }}>Have a question not listed here?</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px' }}>Our technical team is ready to assist you directly.</p>
           <a 
-            href="https://wa.me/916282878105?text=Hello%20BLANK%20FIVE,%20I%20have%20a%20question%20about%20your%20services!" 
+            href="https://wa.me/918078434415?text=Hello%20BLANK%20FIVE,%20I%20have%20a%20question%20about%20your%20services!" 
             target="_blank" 
             rel="noreferrer"
             className="btn-secondary"
