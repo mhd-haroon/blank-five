@@ -42,64 +42,65 @@ export default function ProjectDocument({
       return;
     }
 
-    try {
-      const printFrame = document.createElement('iframe');
-      printFrame.style.position = 'fixed';
-      printFrame.style.right = '0';
-      printFrame.style.bottom = '0';
-      printFrame.style.width = '0';
-      printFrame.style.height = '0';
-      printFrame.style.border = '0';
-      document.body.appendChild(printFrame);
+    const documentHtml = documentRef.current.outerHTML;
+    const printWindow = window.open('', '_blank', 'width=900,height=750,left=200,top=100');
 
-      const doc = printFrame.contentWindow.document;
-      doc.open();
-      doc.write(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <title>BLANK FIVE - Project Specification [${ticketId}]</title>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-            <style>
-              * { box-sizing: border-box; margin: 0; padding: 0; }
-              body { 
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-                background: #ffffff; 
-                color: #0f172a; 
-                padding: 16px;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-              }
-              @page { margin: 12mm; size: A4 portrait; }
-              table { width: 100%; border-collapse: collapse; }
-              .no-print { display: none !important; }
-              .printable-document-sheet {
-                box-shadow: none !important;
-                border: 1px solid #cbd5e1 !important;
-                padding: 24px !important;
-                border-radius: 12px !important;
-              }
-            </style>
-          </head>
-          <body>
-            ${documentRef.current.outerHTML}
-          </body>
-        </html>
-      `);
-      doc.close();
-
-      setTimeout(() => {
-        printFrame.contentWindow.focus();
-        printFrame.contentWindow.print();
-        setTimeout(() => {
-          if (document.body.contains(printFrame)) {
-            document.body.removeChild(printFrame);
-          }
-        }, 1500);
-      }, 350);
-    } catch (err) {
+    if (!printWindow) {
       window.print();
+      return;
     }
+
+    printWindow.document.open();
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>BLANK FIVE - Project Scope [${ticketId}]</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+          <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { 
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+              background: #ffffff !important; 
+              color: #0f172a !important; 
+              padding: 24px;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            .printable-document-sheet {
+              box-shadow: none !important;
+              border: 1px solid #cbd5e1 !important;
+              padding: 32px !important;
+              border-radius: 12px !important;
+              width: 100% !important;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+            table { width: 100%; border-collapse: collapse; }
+            .no-print { display: none !important; }
+            @page { margin: 12mm; size: A4 portrait; }
+          </style>
+        </head>
+        <body>
+          ${documentHtml}
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.focus();
+                window.print();
+                setTimeout(function() {
+                  window.close();
+                }, 800);
+              }, 250);
+            };
+          </script>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
   };
 
   const getDocumentText = () => {
