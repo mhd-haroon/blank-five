@@ -1,16 +1,70 @@
-# React + Vite
+# BLANK FIVE — Digital Agency Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+[![React](https://img.shields.io/badge/React-18.x-00F2FE?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6.x-7F00FF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-FF007F?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-Currently, two official plugins are available:
+**BLANK FIVE** (www.blankfive.com) is a modern technology studio web application specializing in high-performance websites, custom software engineering, mobile apps, SaaS platforms, and cutting-edge brand identity systems.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features & Capabilities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎨 **Dark Glassmorphic UI**: Vibrant cyan (`#00F2FE`), purple (`#7F00FF`), and pink (`#FF007F`) neon gradient branding with backdrop blur card containers.
+- 🗄️ **Persistent Database System**: Inquiries, project quotes, and newsletter signups stored in a client-side persistent database (`src/services/db.js`).
+- 📊 **Admin Control Portal**: Built-in Admin Console (`src/components/AdminPortal.jsx`) for managing lead tickets, updating project statuses, and exporting database CSV backups.
+- 💰 **Multi-Currency Project Estimator**: Interactive scope calculator supporting USD ($), INR (₹), EUR (€), and GBP (£).
+- 💬 **Instant Dispatch System**: Dual direct inquiry dispatch via formatted WhatsApp text (`+91 6282878105`) or Email (`contact@blankfive.com`).
+- ⚡ **Performance & Speed**: Built with React 18 & Vite for near-instant page transitions (< 0.8s load time).
+- 📱 **100% Mobile Responsive**: Fluid layouts, mobile navigation drawer, and floating live desk widget.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm installed.
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/mhd-haroon/blank-five.git
+
+# Navigate into project directory
+cd blank-five
+
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+```
+
+Open `http://localhost:5173/` in your browser.
+
+---
+
+## 🛠️ Production Build & Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
+
+### Vercel / Netlify Deployment
+Pre-configured with `vercel.json`, `netlify.toml`, and `public/CNAME` for 1-click deployment and custom domain binding to **blankfive.com**.
+
+---
+
+## 📬 Contact & Support
+
+- **Website**: [www.blankfive.com](https://www.blankfive.com)
+- **WhatsApp**: [+91 6282878105](https://wa.me/916282878105)
+- **Email**: [contact@blankfive.com](mailto:contact@blankfive.com)
+
+© 2026 BLANK FIVE. All rights reserved.
